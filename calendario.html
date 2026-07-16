@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico Institucional - CMT LII</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .pagina-interna{
+            max-width:1200px;
+            margin:100px auto 50px;
+            padding:30px;
+            background:#fff;
+            border-radius:8px;
+            box-shadow:0 2px 10px rgba(0,0,0,.1);
+        }
+
+        .pagina-interna h1{
+            color:#1a2b4c;
+            margin-bottom:30px;
+            border-bottom:3px solid #d32f2f;
+            padding-bottom:10px;
+        }
+
+        .pagina-interna h2{
+            color:#1a2b4c;
+            margin-top:40px;
+            margin-bottom:15px;
+        }
+
+        .pagina-interna p{
+            text-align:justify;
+            line-height:1.8;
+            margin-bottom:15px;
+        }
+
+        .diretriz{
+            background:#f5f7fa;
+            border-left:5px solid #d32f2f;
+            padding:20px;
+            margin-top:20px;
+            border-radius:5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-container">
+        <h1 class="school-title">
+            CMT LII - UEF Alice Mendes
+        </h1>
+    </div>
+
+    <div class="menu-area">
+
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+
+        <label for="menu-toggle" class="menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+    <nav class="nav-menu">
+        <ul>
+            <ul>
+
+    <li><a href="index.html">Início</a></li>
+
+    <li class="dropdown">
+                <li class="dropdown">
+
+            <li class="dropdown">
+                <details>
+                    
+                    <summary>Institucional</summary>
+                    <ul class="submenu">
+                        <li><a href="historico.html">Histórico</a></li>
+                        <li><a href="equipe.html">Nossa Equipe</a></li>
+                        <li><a href="organizacao.html">Organização Escolar</a></li>
+                    </ul>
+                </details>
+            </li>
+
+            <li><a href="calendario.html">Calendário</a></li>
+                <li><a href="acoes.html">Ações</a></li>
+                <li><a href="https://idiario.semed.bacabal.ma.gov.br/">Diário Eletrônico</a></li>
+
+        </ul>
+    </nav>
+
+<div class="header-spacer"></div>
+</header>
+
+<div class="header-spacer"></div>
+
+<main class="pagina-interna calendario-page">
+
+    <h1>Calendário Letivo 2026</h1>
+
+    <div class="calendario-acoes">
+        <a href="calendário/Calendário Letivo SEMED - BACABAL-MA.pdf" download class="btn-download">
+            📥 Baixar Calendário
+        </a>
+    </div>
+
+    <section class="livro-calendario">
+
+        <button class="btn-pagina" onclick="paginaAnterior()">‹</button>
+
+        <div class="pagina-livro">
+            <img id="paginaCalendario" src="imagens/calendario/pagina-01.jpg" alt="Página do calendário">
+        </div>
+
+        <button class="btn-pagina" onclick="proximaPagina()">›</button>
+
+    </section>
+
+    <p class="contador-paginas">
+        Página <span id="paginaAtual">1</span> de <span id="totalPaginas">15</span>
+    </p>
+
+</main>
+
+<footer>
+    <p>
+        © 2026 - Colégio Militar Municipal Tiradentes LII - UEF Alice Mendes
+    </p>
+</footer>
+<a href="#" class="btn-topo">
+    ↑
+</a>
+<script>
+    const paginas = [
+        "imagens/calendario/Slide1.JPG",
+        "imagens/calendario/Slide2.JPG",
+        "imagens/calendario/Slide3.JPG",
+        "imagens/calendario/Slide4.JPG",
+        "imagens/calendario/Slide5.JPG",
+        "imagens/calendario/Slide6.JPG",
+        "imagens/calendario/Slide7.JPG",
+        "imagens/calendario/Slide8.JPG",
+        "imagens/calendario/Slide9.JPG",
+        "imagens/calendario/Slide10.JPG",
+        "imagens/calendario/Slide11.JPG",
+        "imagens/calendario/Slide12.JPG",
+        "imagens/calendario/Slide13.JPG",
+        "imagens/calendario/Slide14.JPG",
+        "imagens/calendario/Slide15.JPG"
+    ];
+
+    let paginaAtual = 0;
+
+    function atualizarPagina() {
+        const img = document.getElementById("paginaCalendario");
+        const livro = document.querySelector(".pagina-livro");
+
+        livro.classList.add("virando");
+
+        setTimeout(() => {
+            img.src = paginas[paginaAtual];
+            document.getElementById("paginaAtual").textContent = paginaAtual + 1;
+            livro.classList.remove("virando");
+        }, 250);
+    }
+
+    function proximaPagina() {
+        if (paginaAtual < paginas.length - 1) {
+            paginaAtual++;
+            atualizarPagina();
+        }
+    }
+
+    function paginaAnterior() {
+        if (paginaAtual > 0) {
+            paginaAtual--;
+            atualizarPagina();
+        }
+    }
+</script>
+
+</body>
+</html>

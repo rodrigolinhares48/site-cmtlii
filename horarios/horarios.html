@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico Institucional - CMT LII</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .pagina-interna{
+            max-width:1200px;
+            margin:100px auto 50px;
+            padding:30px;
+            background:#fff;
+            border-radius:8px;
+            box-shadow:0 2px 10px rgba(0,0,0,.1);
+        }
+
+        .pagina-interna h1{
+            color:#1a2b4c;
+            margin-bottom:30px;
+            border-bottom:3px solid #d32f2f;
+            padding-bottom:10px;
+        }
+
+        .pagina-interna h2{
+            color:#1a2b4c;
+            margin-top:40px;
+            margin-bottom:15px;
+        }
+
+        .pagina-interna p{
+            text-align:justify;
+            line-height:1.8;
+            margin-bottom:15px;
+        }
+
+        .diretriz{
+            background:#f5f7fa;
+            border-left:5px solid #d32f2f;
+            padding:20px;
+            margin-top:20px;
+            border-radius:5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-container">
+        <h1 class="school-title">
+            CMT LII - UEF Alice Mendes
+        </h1>
+    </div>
+
+    <div class="menu-area">
+
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+
+        <label for="menu-toggle" class="menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+    <nav class="nav-menu">
+        <ul>
+            <ul>
+
+    <li><a href="../index.html">Início</a></li>
+
+    <li class="dropdown">
+                <li class="dropdown">
+
+            <li class="dropdown">
+                <details>
+                    
+                    <summary>Institucional</summary>
+                    <ul class="submenu">
+                        <li><a href="../historico.html">Histórico</a></li>
+                        <li><a href="../equipe.html">Nossa Equipe</a></li>
+                        <li><a href="../organizacao.html">Organização Escolar</a></li>
+                    </ul>
+                </details>
+            </li>
+
+            <li><a href="../calendario.html">Calendário</a></li>
+                <li><a href="../acoes.html">Ações</a></li>
+                <li><a href="https://idiario.semed.bacabal.ma.gov.br/">Diário Eletrônico</a></li>
+
+        </ul>
+    </nav>
+
+<div class="header-spacer"></div>
+</header>
+
+<div class="header-spacer"></div>
+<main class="pagina-interna horarios-interativos-page">
+
+    <section class="cabecalho-horarios-interativos">
+        <span class="etiqueta-pagina">Organização Escolar</span>
+
+        <h1>Horários de Aula</h1>
+
+        <p>
+            Selecione uma etapa e uma turma para consultar o quadro semanal.
+        </p>
+    </section>
+
+    <section class="ferramentas-horarios">
+
+        <div class="abas-horarios">
+            <button
+                type="button"
+                class="aba-horario ativa"
+                data-etapa="iniciais"
+            >
+                Anos Iniciais
+                <small>1º ao 5º ano</small>
+            </button>
+
+            <button
+                type="button"
+                class="aba-horario"
+                data-etapa="finais"
+            >
+                Anos Finais
+                <small>6º ao 9º ano</small>
+            </button>
+        </div>
+
+        <div class="campo-pesquisa-horario">
+            <label for="pesquisaTurma">Pesquisar turma</label>
+
+            <input
+                type="search"
+                id="pesquisaTurma"
+                placeholder="Ex.: 6º Ano B"
+                autocomplete="off"
+            >
+        </div>
+
+    </section>
+
+    <section class="lista-turmas-area">
+
+        <h2 id="tituloListaTurmas">Turmas dos Anos Iniciais</h2>
+
+        <div id="listaTurmas" class="grid-turmas"></div>
+
+        <p id="nenhumaTurma" class="nenhuma-turma">
+            Nenhuma turma encontrada.
+        </p>
+
+    </section>
+
+    <section id="painelHorario" class="painel-horario-interativo">
+
+        <div class="topo-painel-horario">
+
+            <div>
+                <span id="etapaSelecionada">
+                    Anos Iniciais
+                </span>
+
+                <h2 id="nomeTurmaSelecionada">
+                    1º Ano A
+                </h2>
+
+                <p id="turnoTurmaSelecionada">
+                    Turno matutino • 07h15 às 11h45
+                </p>
+            </div>
+
+            <div class="acoes-horario">
+                <button
+                    type="button"
+                    id="botaoImprimir"
+                    class="botao-imprimir-horario"
+                >
+                    Imprimir horário
+                </button>
+            </div>
+
+        </div>
+
+        <div class="legenda-horario">
+            <span>
+                <i class="marcador-aula"></i>
+                Aula regular
+            </span>
+
+            <span>
+                <i class="marcador-civico"></i>
+                Instrução Cívico-Militar
+            </span>
+        </div>
+
+        <div class="tabela-horario-container">
+
+            <table class="tabela-horario-interativa">
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Segunda</th>
+                        <th>Terça</th>
+                        <th>Quarta</th>
+                        <th>Quinta</th>
+                        <th>Sexta</th>
+                    </tr>
+                </thead>
+
+                <tbody id="corpoTabelaHorario"></tbody>
+            </table>
+
+        </div>
+
+    </section>
+
+    <aside class="aviso-horarios">
+        <strong>Atenção:</strong>
+
+        <p>
+            Os horários podem sofrer alterações conforme as necessidades
+            pedagógicas e administrativas da instituição.
+        </p>
+    </aside>
+
+</main>
+```
+
+
+<footer>
+    <p>
+        © 2026 - Colégio Militar Municipal Tiradentes LII - UEF Alice Mendes
+    </p>
+</footer>
+<a href="#" class="btn-topo">
+    ↑
+</a>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const botoes = document.querySelectorAll(".botao-etapa-horario");
+    const visualizador = document.getElementById("visualizadorHorario");
+    const titulo = document.getElementById("tituloDocumento");
+    const botaoAbrir = document.getElementById("abrirDocumento");
+    const botaoBaixar = document.getElementById("baixarDocumento");
+
+    if (
+        botoes.length === 0 ||
+        !visualizador ||
+        !titulo ||
+        !botaoAbrir ||
+        !botaoBaixar
+    ) {
+        console.error("Elementos do visualizador de horários não foram encontrados.");
+        return;
+    }
+
+    botoes.forEach(function (botao) {
+
+        botao.addEventListener("click", function (evento) {
+
+            evento.preventDefault();
+            evento.stopPropagation();
+
+            const caminhoDocumento = botao.getAttribute("data-documento");
+            const nomeDocumento = botao.getAttribute("data-titulo");
+
+            if (!caminhoDocumento || !nomeDocumento) {
+                console.error("O botão não possui data-documento ou data-titulo.");
+                return;
+            }
+
+            botoes.forEach(function (item) {
+                item.classList.remove("ativo");
+            });
+
+            botao.classList.add("ativo");
+
+            titulo.textContent = nomeDocumento;
+
+            visualizador.setAttribute(
+                "src",
+                caminhoDocumento + "#toolbar=1&navpanes=0&view=FitH"
+            );
+
+            visualizador.setAttribute("title", nomeDocumento);
+
+            botaoAbrir.setAttribute("href", caminhoDocumento);
+            botaoBaixar.setAttribute("href", caminhoDocumento);
+        });
+
+    });
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const dias = [
+        "segunda",
+        "terca",
+        "quarta",
+        "quinta",
+        "sexta"
+    ];
+
+    const nomesDias = {
+        segunda: "Segunda",
+        terca: "Terça",
+        quarta: "Quarta",
+        quinta: "Quinta",
+        sexta: "Sexta"
+    };
+
+    const horarioIniciaisBase = {
+        segunda: [
+            "Língua Portuguesa",
+            "Língua Portuguesa",
+            "Geografia",
+            "Geografia",
+            "Língua Estrangeira"
+        ],
+        terca: [
+            "Matemática",
+            "Matemática",
+            "Matemática",
+            "Ciências",
+            "Ciências"
+        ],
+        quarta: [
+            "Língua Portuguesa",
+            "Língua Portuguesa",
+            "Ciências",
+            "Arte",
+            "Arte"
+        ],
+        quinta: [
+            "Matemática",
+            "Matemática",
+            "História",
+            "História",
+            "Ensino Religioso"
+        ],
+        sexta: [
+            "Língua Portuguesa",
+            "Língua Portuguesa",
+            "Matemática",
+            "Filosofia",
+            "Recreação"
+        ]
+    };
+
+    function criarHorarioIniciais(diaCivico) {
+        return {
+            tipo: "iniciais",
+            turno: "Matutino",
+            funcionamento: "07h15 às 11h45",
+            civico: diaCivico,
+            aulas: JSON.parse(JSON.stringify(horarioIniciaisBase))
+        };
+    }
+
+    const turmas = [
+        {
+            id: "1a",
+            nome: "1º Ano A",
+            etapa: "iniciais",
+            ...criarHorarioIniciais("segunda")
+        },
+        {
+            id: "1b",
+            nome: "1º Ano B",
+            etapa: "iniciais",
+            ...criarHorarioIniciais("segunda")
+        },
+        {
+            id: "2a",
+            nome: "2º Ano A",
+            etapa: "iniciais",
+            ...criarHorarioIniciais("terca")
+        },
+        {
+            id: "2b",
+            nome: "2º Ano B",
+            etapa: "iniciais",
+            ...criarHorarioIniciais("terca")
+        },
+        {
+            id: "3a",
+            nome: "3º Ano A",
+            etapa: "iniciais",
+            ...criarHorarioIniciais("quarta")
+        },
+        {
+            id: "3b",
+            nome: "3º Ano B",
+            etapa: "iniciais",
+            ...criarHorarioIniciais("quarta")
+        },
+        {
+            id: "4a",
+            nome: "4º Ano A",
+            etapa: "iniciais",
+            ...criarHorarioIniciais("quinta")
+        },
+        {
+            id: "4b",
+            nome: "4º Ano B",
+            etapa: "iniciais",
+            ...criarHorarioIniciais("quinta")
+        },
+        {
+            id: "5a",
+            nome: "5º Ano A",
+            etapa: "iniciais",
+            ...criarHorarioIniciais("sexta")
+        },
+        {
+            id: "5b",
+            nome: "5º Ano B",
+            etapa: "iniciais",
+            ...criarHorarioIniciais("sexta")
+        },
+
+        
+    ];
+
+    const nomesTurmasFinais = [ "6º Ano A", "6º Ano B", "6º Ano C", "6º Ano D", "7º Ano A", "7º Ano B", "7º Ano C", "8º Ano A", "8º Ano B", "8º Ano C", "9º Ano A", "9º Ano B", "9º Ano C" ];
+    const gradeAnosFinais = { segunda: [ /* 1º horário */ [ ["Língua Portuguesa", "Bruna"], ["Informática", "Jodson"], ["Educação Física", "Júnior"], ["Geografia", "Mirella"], ["Ciências", "Alan"], ["Matemática", "Glauciene"], ["Informática", "Alessandra"], ["História", "Cutrim"], ["Ensino Religioso", "Klebiana"], ["Geografia", "Antônio M."], ["Matemática", "Maxsuel"], ["Arte", "Hellen"], ["Língua Portuguesa", "Jéssika"] ], /* 2º horário */ [ ["Informática", "Jodson"], ["Ciências", "Alan"], ["Ensino Religioso", "Klebiana"], ["Língua Portuguesa", "Bruna"], ["Geografia", "Cutrim"], ["Matemática", "Glauciene"], ["Língua Portuguesa", "Hellen"], ["Educação Física", "Marcos"], ["Geografia", "Antônio M."], ["Língua Inglesa", "Letícia"], ["Ciências", "Alessandra"], ["Língua Portuguesa", "Jéssika"], ["Matemática", "Maxsuel"] ], /* 3º horário */ [ ["História", "Cutrim"], ["Educação Física", "Júnior"], ["Geografia", "Mirella"], ["Língua Portuguesa", "Bruna"], ["Matemática", "Glauciene"], ["Informática", "Alessandra"], ["Língua Inglesa", "Letícia"], ["Língua Portuguesa", "Hellen"], ["Informática", "Jodson"], ["Educação Física", "Marcos"], ["Língua Portuguesa", "Jéssika"], ["Geografia", "Antônio M."], ["Informática", "Maxsuel"] ], /* 4º horário */ [ ["Ciências", "Alan"], ["Matemática", "Glauciene"], ["Informática", "Jodson"], ["Língua Inglesa", "Letícia"], ["Língua Portuguesa", "Bruna"], ["Educação Física", "Júnior"], ["Ensino Religioso", "Klebiana"], ["Ciências", "Alessandra"], ["História", "Cutrim"], ["Arte", "Hellen"], ["Língua Portuguesa", "Jéssika"], ["Matemática", "Maxsuel"], ["Geografia", "Antônio M."] ], /* 5º horário */ [ ["Geografia", "Cutrim"], ["Matemática", "Glauciene"], ["Língua Inglesa", "Letícia"], ["Ensino Religioso", "Klebiana"], ["Língua Portuguesa", "Bruna"], ["Ciências", "Alan"], ["Educação Física", "Júnior"], ["Matemática", "Jodson"], ["Ciências", "Alessandra"], ["Língua Portuguesa", "Jéssika"], ["Educação Física", "Marcos"], ["Matemática", "Maxsuel"], ["Arte", "Hellen"] ] ], terca: [ [ ["Língua Portuguesa", "Bruna"], ["Filosofia", "Ivonete"], ["Matemática", "Glauciene"], ["Ciências", "Edna"], ["Arte", "Washington"], ["Língua Inglesa", "Letícia"], ["Geografia", "Cutrim"], ["Filosofia", "Rafaella"], ["Ciências", "Alessandra"], ["Matemática", "Jodson"], ["Língua Portuguesa", "Jéssika"], ["Arte", "Hellen"], ["Matemática", "Maxsuel"] ], [ ["Língua Portuguesa", "Bruna"], ["Matemática", "Glauciene"], ["Ciências", "Edna"], ["Arte", "Rafaella"], ["Ensino Religioso", "Klebiana"], ["Filosofia", "Ivonete"], ["Arte", "Washington"], ["Geografia", "Antônio M."], ["Língua Inglesa", "Letícia"], ["Matemática", "Jodson"], ["Arte", "Hellen"], ["História", "Cutrim"], ["Língua Portuguesa", "Jéssika"] ], [ ["Educação Física", "Júnior"], ["Geografia", "Cutrim"], ["Filosofia", "Ivonete"], ["Língua Portuguesa", "Bruna"], ["Língua Inglesa", "Letícia"], ["Matemática", "Glauciene"], ["Ciências", "Alessandra"], ["Informática", "Jodson"], ["Língua Portuguesa", "Jéssika"], ["Arte", "Hellen"], ["Matemática", "Maxsuel"], ["Geografia", "Antônio M."], ["Filosofia", "Rafaella"] ], [ ["Língua Inglesa", "Washington"], ["Língua Portuguesa", "Bruna"], ["Ciências", "Edna"], ["Matemática", "Glauciene"], ["Educação Física", "Júnior"], ["Língua Portuguesa", "Hellen"], ["Matemática", "Jodson"], ["Língua Inglesa", "Letícia"], ["Filosofia", "Rafaella"], ["Língua Portuguesa", "Jéssika"], ["Matemática", "Maxsuel"], ["Ciências", "Alessandra"], ["História", "Cutrim"] ], [ ["Matemática", "Glauciene"], ["Língua Portuguesa", "Bruna"], ["Língua Inglesa", "Letícia"], ["Informática", "Jodson"], ["Geografia", "Cutrim"], ["Arte", "Washington"], ["Língua Portuguesa", "Hellen"], ["Ensino Religioso", "Klebiana"], ["Língua Portuguesa", "Jéssika"], ["Filosofia", "Rafaella"], ["Geografia", "Antônio M."], ["Matemática", "Maxsuel"], ["Ciências", "Alessandra"] ] ], quarta: [ [ ["História", "Cutrim"], ["Língua Portuguesa", "Bruna"], ["História", "Maciorlane"], ["Matemática", "Glauciene"], ["Língua Inglesa", "Letícia"], ["Língua Portuguesa", "Hellen"], ["Ciências", "Alessandra"], ["Geografia", "Antônio M."], ["Matemática", "Jodson"], ["Educação Física", "Marcos"], ["Filosofia", "Rafaella"], ["Matemática", "Maxsuel"], ["Língua Portuguesa", "Jéssika"] ], [ ["Geografia", "Cutrim"], ["Matemática", "Glauciene"], ["Língua Portuguesa", "Bruna"], ["Ciências", "Edna"], ["Educação Física", "Júnior"], ["História", "Macionêde"], ["Matemática", "Jodson"], ["Língua Portuguesa", "Hellen"], ["Língua Inglesa", "Letícia"], ["Ciências", "Alessandra"], ["Geografia", "Antônio M."], ["Informática", "Maxsuel"], ["Língua Portuguesa", "Jéssika"] ], [ ["Arte", "Hellen"], ["História", "Maciorlane"], ["Língua Portuguesa", "Bruna"], ["Ciências", "Edna"], ["História", "Macionêde"], ["Matemática", "Glauciene"], ["Língua Inglesa", "Letícia"], ["Ciências", "Alessandra"], ["Geografia", "Antônio M."], ["Matemática", "Jodson"], ["Língua Portuguesa", "Jéssika"], ["Filosofia", "Rafaella"], ["Matemática", "Maxsuel"] ], [ ["Matemática", "Glauciene"], ["Língua Portuguesa", "Bruna"], ["Arte", "Rafaella"], ["História", "Maciorlane"], ["Informática", "Alessandra"], ["Geografia", "Cutrim"], ["História", "Macionêde"], ["Educação Física", "Marcos"], ["Língua Portuguesa", "Jéssika"], ["Geografia", "Antônio M."], ["Arte", "Hellen"], ["Língua Inglesa", "Letícia"], ["Matemática", "Maxsuel"] ], [ ["Matemática", "Glauciene"], ["Arte", "Rafaella"], ["Ciências", "Edna"], ["Educação Física", "Júnior"], ["Língua Portuguesa", "Bruna"], ["Língua Portuguesa", "Hellen"], ["Matemática", "Jodson"], ["Língua Inglesa", "Letícia"], ["Ciências", "Alessandra"], ["História", "Cutrim"], ["Matemática", "Maxsuel"], ["Língua Portuguesa", "Jéssika"], ["Geografia", "Antônio M."] ] ], quinta: [ [ ["Filosofia", "Ivonete"], ["História", "Maciorlane"], ["Língua Portuguesa", "Bruna"], ["Arte", "Rafaella"], ["História", "Macionêde"], ["Geografia", "Cutrim"], ["Língua Portuguesa", "Hellen"], ["Arte", "Washington"], ["Educação Física", "Marcos"], ["Língua Portuguesa", "Jéssika"], ["Informática", "Jodson"], ["Ciências", "Alessandra"], ["Língua Inglesa", "Letícia"] ], [ ["Matemática", "Glauciene"], ["Ciências", "Alan"], ["Língua Portuguesa", "Bruna"], ["História", "Maciorlane"], ["Filosofia", "Ivonete"], ["Língua Inglesa", "Letícia"], ["Língua Portuguesa", "Hellen"], ["História", "Cutrim"], ["Matemática", "Jodson"], ["Língua Portuguesa", "Jéssika"], ["Educação Física", "Marcos"], ["Ensino Religioso", "Klebiana"], ["Ciências", "Alessandra"] ], [ ["Arte", "Hellen"], ["Língua Portuguesa", "Bruna"], ["História", "Maciorlane"], ["Filosofia", "Ivonete"], ["Matemática", "Glauciene"], ["Ciências", "Alan"], ["História", "Macionêde"], ["Matemática", "Jodson"], ["Língua Portuguesa", "Jéssika"], ["Língua Inglesa", "Letícia"], ["Ciências", "Alessandra"], ["Educação Física", "Marcos"], ["História", "Cutrim"] ], [ ["Ciências", "Alan"], ["Língua Inglesa", "Letícia"], ["Arte", "Rafaella"], ["Língua Portuguesa", "Bruna"], ["Matemática", "Glauciene"], ["História", "Macionêde"], ["Educação Física", "Júnior"], ["Matemática", "Jodson"], ["Arte", "Washington"], ["Ciências", "Alessandra"], ["História", "Cutrim"], ["Língua Portuguesa", "Jéssika"], ["Arte", "Hellen"] ], [ ["Ensino Religioso", "Klebiana"], ["Arte", "Rafaella"], ["Matemática", "Glauciene"], ["Língua Portuguesa", "Bruna"], ["Ciências", "Alan"], ["Arte", "Washington"], ["Ciências", "Alessandra"], ["Língua Portuguesa", "Hellen"], ["História", "Cutrim"], ["Matemática", "Jodson"], ["Língua Inglesa", "Letícia"], ["Língua Portuguesa", "Jéssika"], ["Educação Física", "Marcos"] ] ], sexta: [ [ ["Educação Física", "Júnior"], ["Ciências", "Alan"], ["Geografia", "Mirella"], ["Matemática", "Glauciene"], ["Língua Portuguesa", "Bruna"], ["Língua Portuguesa", "Hellen"], ["Matemática", "Jodson"], ["Ciências", "Alessandra"], ["Arte", "Washington"], ["Ensino Religioso", "Klebiana"], ["Língua Inglesa", "Letícia"], ["História", "Cutrim"], ["Língua Portuguesa", "Jéssika"] ], [ ["Ciências", "Alan"], ["Língua Inglesa", "Letícia"], ["Educação Física", "Júnior"], ["Matemática", "Glauciene"], ["Língua Portuguesa", "Bruna"], ["Língua Portuguesa", "Hellen"], ["Filosofia", "Mirella"], ["Arte", "Washington"], ["Língua Portuguesa", "Jéssika"], ["Informática", "Jodson"], ["História", "Cutrim"], ["Ciências", "Alessandra"], ["Ensino Religioso", "Klebiana"] ], [ ["Língua Portuguesa", "Bruna"], ["Educação Física", "Júnior"], ["Matemática", "Glauciene"], ["Geografia", "Mirella"], ["Arte", "Washington"], ["Ensino Religioso", "Klebiana"], ["Geografia", "Cutrim"], ["Língua Portuguesa", "Hellen"], ["Matemática", "Jodson"], ["Língua Portuguesa", "Jéssika"], ["Ciências", "Alessandra"], ["Língua Inglesa", "Letícia"], ["Educação Física", "Marcos"] ], [ ["Língua Portuguesa", "Bruna"], ["Ensino Religioso", "Klebiana"], ["Matemática", "Glauciene"], ["Língua Inglesa", "Letícia"], ["Ciências", "Alan"], ["Educação Física", "Júnior"], ["Arte", "Washington"], ["Língua Portuguesa", "Hellen"], ["Matemática", "Jodson"], ["História", "Cutrim"], ["Língua Portuguesa", "Jéssika"], ["Educação Física", "Marcos"], ["Ciências", "Alessandra"] ], [ ["Língua Inglesa", "Washington"], ["Geografia", "Cutrim"], ["Língua Portuguesa", "Bruna"], ["Educação Física", "Júnior"], ["Matemática", "Glauciene"], ["Ciências", "Alan"], ["Língua Portuguesa", "Hellen"], ["Matemática", "Jodson"], ["Educação Física", "Marcos"], ["Ciências", "Alessandra"], ["Ensino Religioso", "Klebiana"], ["Língua Portuguesa", "Jéssika"], ["Língua Inglesa", "Letícia"] ] ] }
+    const diasCivicosFinais = { "6º Ano A": "segunda", "6º Ano B": "segunda", "6º Ano C": "terca", "6º Ano D": "terca", "7º Ano A": "quarta", "7º Ano B": "quarta", "7º Ano C": "quinta", "8º Ano A": "quinta", "8º Ano B": "quinta", "8º Ano C": "sexta", "9º Ano A": "segunda", "9º Ano B": "terca", "9º Ano C": "quarta" };
+    
+    const listaTurmas = document.getElementById("listaTurmas");
+    const nenhumaTurma = document.getElementById("nenhumaTurma");
+    const pesquisaTurma = document.getElementById("pesquisaTurma");
+
+    const tituloListaTurmas =
+        document.getElementById("tituloListaTurmas");
+
+    const nomeTurmaSelecionada =
+        document.getElementById("nomeTurmaSelecionada");
+
+    const etapaSelecionada =
+        document.getElementById("etapaSelecionada");
+
+    const turnoTurmaSelecionada =
+        document.getElementById("turnoTurmaSelecionada");
+
+    const corpoTabelaHorario =
+        document.getElementById("corpoTabelaHorario");
+
+    const botoesAbas =
+        document.querySelectorAll(".aba-horario");
+
+    const botaoImprimir =
+        document.getElementById("botaoImprimir");
+
+    let etapaAtual = "iniciais";
+    let turmaAtual = turmas[0];
+
+    function criarTurmasAnosFinais() { return nomesTurmasFinais.map(function (nomeTurma, indiceTurma) { const idTurma = nomeTurma .normalize("NFD") .replace(/[\u0300-\u036f]/g, "") .replace("º", "") .replace(/\s+/g, "") .toLowerCase(); const aulasDaTurma = { segunda: [], terca: [], quarta: [], quinta: [], sexta: [] }; Object.keys(gradeAnosFinais).forEach(function (dia) { gradeAnosFinais[dia].forEach(function (horario) { aulasDaTurma[dia].push( horario[indiceTurma] ); }); }); return { id: idTurma, nome: nomeTurma, etapa: "finais", tipo: "finais", turno: "Vespertino", funcionamento: "Horário conforme organização escolar", civico: diasCivicosFinais[nomeTurma], aulas: aulasDaTurma }; }); }
+    turmas.push(...criarTurmasAnosFinais());
+    function normalizarTexto(texto) {
+        return texto
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase();
+    }
+
+    function criarCartoesTurmas() {
+        const termo = normalizarTexto(pesquisaTurma.value.trim());
+
+        const turmasFiltradas = turmas.filter(function (turma) {
+            return (
+                turma.etapa === etapaAtual &&
+                normalizarTexto(turma.nome).includes(termo)
+            );
+        });
+
+        listaTurmas.innerHTML = "";
+
+        nenhumaTurma.style.display =
+            turmasFiltradas.length === 0 ? "block" : "none";
+
+        turmasFiltradas.forEach(function (turma) {
+            const botao = document.createElement("button");
+
+            botao.type = "button";
+            botao.className = "cartao-turma";
+
+            if (turmaAtual && turmaAtual.id === turma.id) {
+                botao.classList.add("ativo");
+            }
+
+            botao.dataset.turma = turma.id;
+
+            botao.innerHTML = `
+                <strong>${turma.nome}</strong>
+                <span>
+                    ${turma.turno} • Consultar horário
+                </span>
+            `;
+
+            botao.addEventListener("click", function () {
+                selecionarTurma(turma.id);
+            });
+
+            listaTurmas.appendChild(botao);
+        });
+    }
+
+    function selecionarTurma(idTurma) {
+        const turmaEncontrada = turmas.find(function (turma) {
+            return turma.id === idTurma;
+        });
+
+        if (!turmaEncontrada) {
+            return;
+        }
+
+        turmaAtual = turmaEncontrada;
+
+        criarCartoesTurmas();
+        renderizarHorario();
+    }
+
+    function obterConteudoAula(turma, dia, indice) {
+        const aula = turma.aulas[dia][indice];
+
+        if (turma.tipo === "iniciais") {
+            return {
+                disciplina: aula,
+                professor: ""
+            };
+        }
+
+        return {
+            disciplina: aula[0],
+            professor: aula[1]
+        };
+    }
+
+    function renderizarHorario() {
+        nomeTurmaSelecionada.textContent = turmaAtual.nome;
+
+        etapaSelecionada.textContent =
+            turmaAtual.etapa === "iniciais"
+                ? "Anos Iniciais"
+                : "Anos Finais";
+
+        turnoTurmaSelecionada.textContent =
+            `${turmaAtual.turno} • ${turmaAtual.funcionamento}`;
+
+        corpoTabelaHorario.innerHTML = "";
+
+        for (let indice = 0; indice < 5; indice++) {
+            const linha = document.createElement("tr");
+
+            const tituloHorario = document.createElement("th");
+
+            tituloHorario.scope = "row";
+            tituloHorario.textContent = `${indice + 1}º horário`;
+
+            linha.appendChild(tituloHorario);
+
+            dias.forEach(function (dia) {
+                const celula = document.createElement("td");
+                const conteudo = obterConteudoAula(
+                    turmaAtual,
+                    dia,
+                    indice
+                );
+
+                celula.className = "celula-aula";
+
+                celula.innerHTML = `
+                    <span class="nome-disciplina">
+                        ${conteudo.disciplina}
+                    </span>
+
+                    ${
+                        conteudo.professor
+                            ? `<span class="nome-professor">
+                                   Prof. ${conteudo.professor}
+                               </span>`
+                            : ""
+                    }
+                `;
+
+                linha.appendChild(celula);
+            });
+
+            corpoTabelaHorario.appendChild(linha);
+        }
+
+        const linhaCivico = document.createElement("tr");
+        const tituloCivico = document.createElement("th");
+
+        tituloCivico.scope = "row";
+        tituloCivico.textContent = "Formação";
+
+        linhaCivico.appendChild(tituloCivico);
+
+        dias.forEach(function (dia) {
+            const celula = document.createElement("td");
+
+            if (dia === turmaAtual.civico) {
+                celula.className = "celula-civico";
+                celula.textContent = "Instrução Cívico-Militar";
+            } else {
+                celula.textContent = "—";
+            }
+
+            linhaCivico.appendChild(celula);
+        });
+
+        corpoTabelaHorario.prepend(linhaCivico);
+    }
+
+    botoesAbas.forEach(function (botao) {
+        botao.addEventListener("click", function () {
+            botoesAbas.forEach(function (item) {
+                item.classList.remove("ativa");
+            });
+
+            botao.classList.add("ativa");
+
+            etapaAtual = botao.dataset.etapa;
+            pesquisaTurma.value = "";
+
+            tituloListaTurmas.textContent =
+                etapaAtual === "iniciais"
+                    ? "Turmas dos Anos Iniciais"
+                    : "Turmas dos Anos Finais";
+
+            const primeiraTurmaEtapa = turmas.find(function (turma) {
+                return turma.etapa === etapaAtual;
+            });
+
+            if (primeiraTurmaEtapa) {
+                turmaAtual = primeiraTurmaEtapa;
+            }
+
+            criarCartoesTurmas();
+            renderizarHorario();
+        });
+    });
+
+    pesquisaTurma.addEventListener("input", criarCartoesTurmas);
+
+    botaoImprimir.addEventListener("click", function () {
+        window.print();
+    });
+
+    criarCartoesTurmas();
+    renderizarHorario();
+
+});
+</script>
+</body>
+</html>

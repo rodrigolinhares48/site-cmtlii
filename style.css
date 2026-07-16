@@ -1,0 +1,1724 @@
+/* Configuração Global e Fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* 1. HEAD PARADO (FIXO NO TOPO) */
+header {
+    background-color: #1a2b4c; /* Azul marinho institucional */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Força o cabeçalho a ficar parado */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px; /* Define uma altura exata para o cabeçalho */
+    z-index: 1000; /* Garante que ele fique na frente de tudo */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    
+}
+
+/* Espaçador obrigatório para compensar a altura do topo fixo */
+.header-spacer {
+    height: 75px; 
+    display: block;
+    width: 100%;
+}
+
+/* 4. ÍCONE AO LADO DO NOME */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.menu-area {
+    position: relative;
+    margin-left: auto;
+}
+
+.school-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50%; /* Remove se o brasão for quadrado */
+}
+
+.school-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* Menu de Navegação Padrão (Computador) */
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row; /* Garante que os links fiquem lado a lado no PC */
+    gap: 20px;
+}
+.nav-menu {
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    background: #1a2b4c;
+    border-radius: 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    min-width: 220px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.nav-menu ul {
+    flex-direction: column;
+    gap: 0;
+}
+
+.nav-menu li {
+    width: 100%;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 12px 20px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #d32f2f;
+}
+
+/* Esconder o checkbox e o botão do hambúrguer no computador */
+.menu-checkbox:checked ~ .nav-menu {
+    max-height: 500px;
+}
+.menu-checkbox {
+    display: none !important;
+}
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 3. DESIGN DO ÍCONE DE TRÊS TRAÇOS (HAMBÚRGUER) */
+.menu-button span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+
+/* Banner responsivo */
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.banner {
+    margin-top: 0;
+}
+
+/* Acesso Rápido */
+.acesso-rapido {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 25px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    flex-wrap: wrap; /* Faz quebrar linha se não couber */
+}
+
+.btn-atalho {
+    background-color: #1a2b4c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-atalho:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+/* Postagens e Grid */
+.postagens {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.postagens h2 {
+    color: #1a2b4c;
+    margin-bottom: 15px;
+}
+
+.filtros {
+    margin-bottom: 30px;
+}
+
+.filtros a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 600;
+    margin: 0 8px;
+}
+
+.grid-noticias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    border-top: 4px solid #d32f2f;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-radius: 4px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #1a2b4c;
+}
+
+.card p {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.ler-mais {
+    text-decoration: none;
+    color: #d32f2f;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+footer {
+    background-color: #1a2b4c;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+/* =======================================================
+   2. RESPONSIVIDADE (Telas menores de 768px - Celulares)
+   ======================================================= */
+@media (max-width: 768px) {
+    .ferramentas-horarios {
+    grid-template-columns: 1fr;
+}
+
+.abas-horarios {
+    grid-template-columns: 1fr;
+}
+
+.grid-turmas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.topo-painel-horario {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.acoes-horario,
+.botao-imprimir-horario {
+    width: 100%;
+}
+
+.legenda-horario {
+    gap: 12px;
+}
+
+.aviso-horarios {
+    display: block;
+}
+
+.aviso-horarios strong {
+    display: block;
+    margin-bottom: 5px;
+}
+    
+    /* Ativar botão hambúrguer */
+    .menu-button {
+        display: flex;
+    }
+
+    /* 3. OCULTAR O MENU POR PADRÃO NO CELULAR */
+    .nav-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: #1a2b4c;
+    border-radius: 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    width: 260px;
+    max-width: calc(100vw - 40px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.seletor-etapas-horario {
+    grid-template-columns: 1fr;
+}
+
+.cabecalho-painel-horarios {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.acoes-documento {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.area-visualizacao-horario {
+    height: 570px;
+    padding: 8px;
+}
+
+.documento-zoom {
+    min-width: 760px;
+}
+
+.documento-zoom iframe {
+    min-height: 540px;
+}
+
+.botao-abrir,
+.botao-download-horario {
+    flex: 1;
+    min-width: 135px;
+}
+
+.aviso-horarios {
+    display: block;
+}
+
+.aviso-horarios strong {
+    display: block;
+    margin-bottom: 5px;
+}
+}
+    /* Dropdown */
+.dropdown {
+    position: relative;
+}
+.menu-area {
+    position: relative;
+    margin-left: auto;
+}
+
+.submenu {
+    list-style: none;
+    background: #24385f;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.submenu li {
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.submenu a {
+    display: block;
+    padding: 12px 30px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.submenu a:hover {
+    background-color: #d32f2f;
+}
+
+    .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        text-align: center;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 15px;
+        width: 100%;
+    }
+    
+
+    /* MOSTRAR O MENU QUANDO O BOTÃO FOR CLICADO */
+    .menu-checkbox:checked ~ .nav-menu {
+        max-height: 300px; /* Expande revelando os itens */
+    }
+
+    /* Efeito visual nas linhas do menu ao clicar (opcional - vira um X) */
+    .menu-checkbox:checked ~ .menu-button span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-checkbox:checked ~ .menu-button span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-checkbox:checked ~ .menu-button span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Ajuste de fontes no celular */
+    .school-title {
+        font-size: 1.1rem;
+    }
+
+    .btn-atalho {
+        width: 100%; /* Botões ocupam largura total no celular */
+        text-align: center;
+    }
+    .dropdown:hover .submenu {
+    max-height: 200px;
+}
+details summary {
+    padding: 15px 20px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] .submenu {
+    max-height: 200px;
+}
+
+ /* FECHA O @media AQUI */
+/* BOTÃO VOLTAR AO TOPO */
+
+
+html {
+    scroll-behavior: smooth;
+}
+.equipe-page {
+    background: transparent;
+    box-shadow: none;
+}
+
+.categoria-equipe {
+    margin-bottom: 50px;
+}
+
+.categoria-equipe h2 {
+    color: #1a2b4c;
+    border-left: 5px solid #d32f2f;
+    padding-left: 12px;
+    margin-bottom: 25px;
+}
+
+.grid-equipe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.card-equipe {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(26, 43, 76, 0.12);
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.foto-funcionario {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(26, 43, 76, 0.12);
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+.foto-funcionario img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-equipe h3 {
+    color: #1a2b4c;
+    margin-bottom: 8px;
+}
+
+.cargo {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.descricao {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.link-curriculo {
+    margin-top: auto;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: rgba(26, 43, 76, 0.08);
+    color: #1a2b4c;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.link-curriculo:hover {
+    background: #d32f2f;
+    color: white;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.btn-topo {
+    position: fixed !important;
+    bottom: 25px !important;
+    right: 25px !important;
+    width: 50px;
+    height: 50px;
+    background: #1a2b4c;
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,.3);
+    transition: 0.3s;
+    z-index: 99999;
+}
+
+.btn-topo:hover {
+    background: #d32f2f;
+    transform: translateY(-3px);
+}
+.calendario-page {
+    text-align: center;
+}
+
+.calendario-acoes {
+    margin: 20px 0 30px;
+}
+
+.btn-download {
+    display: inline-block;
+    background: #1a2b4c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-download:hover {
+    background: #d32f2f;
+}
+
+.livro-calendario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    perspective: 1200px;
+}
+
+.pagina-livro {
+    width: 100%;
+    max-width: 850px;
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.25);
+    transition: transform .5s ease;
+}
+
+.pagina-livro.virando {
+    transform: rotateY(-12deg);
+}
+
+.pagina-livro img {
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+}
+
+.btn-pagina {
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: #1a2b4c;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.btn-pagina:hover {
+    background: #d32f2f;
+}
+
+.contador-paginas {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #1a2b4c;
+}
+
+@media (max-width: 768px) {
+    .livro-calendario {
+        gap: 8px;
+    }
+
+    .btn-pagina {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .pagina-livro {
+        padding: 6px;
+    }
+}
+.noticia-page {
+    max-width: 1000px;
+}
+
+.noticia-completa {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.categoria-noticia {
+    display: inline-block;
+    background: #d32f2f;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: .85rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.noticia-completa h1 {
+    color: #1a2b4c;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.meta-noticia {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: #777;
+    margin-bottom: 25px;
+    font-size: .9rem;
+}
+
+.imagem-destaque {
+    margin-bottom: 30px;
+}
+
+.imagem-destaque img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.conteudo-noticia {
+    line-height: 1.9;
+    color: #444;
+    text-align: justify;
+}
+
+.conteudo-noticia p {
+    margin-bottom: 20px;
+}
+
+.conteudo-noticia blockquote {
+    background: #f4f6f9;
+    border-left: 5px solid #d32f2f;
+    padding: 20px;
+    margin: 25px 0;
+    font-style: italic;
+    color: #1a2b4c;
+}
+
+.compartilhar {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.compartilhar h3 {
+    color: #1a2b4c;
+    margin-bottom: 10px;
+}
+
+.compartilhar a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    background: #1a2b4c;
+    padding: 8px 14px;
+    border-radius: 5px;
+}
+
+.compartilhar a:hover {
+    background: #d32f2f;
+}
+.noticias-page {
+    background: transparent;
+    box-shadow: none;
+}
+
+.cabecalho-pagina {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.cabecalho-pagina h1 {
+    color: #1a2b4c;
+    margin-bottom: 10px;
+}
+
+.cabecalho-pagina p {
+    color: #555;
+    font-size: 1rem;
+}
+
+.filtros-noticias {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.filtro {
+    padding: 8px 18px;
+    background: white;
+    border: 1px solid rgba(26, 43, 76, 0.2);
+    border-radius: 20px;
+    color: #1a2b4c;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.filtro:hover,
+.filtro.ativo {
+    background: #1a2b4c;
+    color: white;
+}
+
+.grid-postagens {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+.post-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+    border-top: 4px solid #d32f2f;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-img {
+    width: 100%;
+    height: 190px;
+    background: #dfe4ec;
+}
+
+.post-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-conteudo {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.post-categoria {
+    background: rgba(211,47,47,.1);
+    color: #d32f2f;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: .8rem;
+    font-weight: bold;
+    width: fit-content;
+    margin-bottom: 12px;
+}
+
+.post-conteudo h2 {
+    color: #1a2b4c;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.post-conteudo p {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.post-rodape {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    font-size: .9rem;
+}
+
+.post-rodape span {
+    color: #666;
+}
+
+.post-rodape a {
+    color: #d32f2f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .post-rodape {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+.noticia-page {
+    max-width: 1000px;
+}
+
+.noticia-completa {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.categoria-noticia {
+    display: inline-block;
+    background: #d32f2f;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: .85rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.noticia-completa h1 {
+    color: #1a2b4c;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.meta-noticia {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: #777;
+    margin-bottom: 25px;
+    font-size: .9rem;
+}
+
+.imagem-destaque {
+    margin-bottom: 30px;
+}
+
+.imagem-destaque img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.conteudo-noticia {
+    line-height: 1.9;
+    color: #444;
+    text-align: justify;
+}
+
+.conteudo-noticia p {
+    margin-bottom: 20px;
+}
+
+.conteudo-noticia blockquote {
+    background: #f4f6f9;
+    border-left: 5px solid #d32f2f;
+    padding: 20px;
+    margin: 25px 0;
+    font-style: italic;
+    color: #1a2b4c;
+}
+
+.compartilhar {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.compartilhar h3 {
+    color: #1a2b4c;
+    margin-bottom: 10px;
+}
+
+.compartilhar a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    background: #1a2b4c;
+    padding: 8px 14px;
+    border-radius: 5px;
+}
+
+.compartilhar a:hover {
+    background: #d32f2f;
+}
+.noticia-page {
+    max-width: 1000px;
+}
+
+.noticia-completa {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.categoria-noticia {
+    display: inline-block;
+    background: #d32f2f;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: .85rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.noticia-completa h1 {
+    color: #1a2b4c;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.meta-noticia {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: #777;
+    margin-bottom: 25px;
+    font-size: .9rem;
+}
+
+.imagem-destaque {
+    margin-bottom: 30px;
+}
+
+.imagem-destaque img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.conteudo-noticia {
+    line-height: 1.9;
+    color: #444;
+    text-align: justify;
+}
+
+.conteudo-noticia p {
+    margin-bottom: 20px;
+}
+
+.conteudo-noticia blockquote {
+    background: #f4f6f9;
+    border-left: 5px solid #d32f2f;
+    padding: 20px;
+    margin: 25px 0;
+    font-style: italic;
+    color: #1a2b4c;
+}
+
+.compartilhar {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.compartilhar h3 {
+    color: #1a2b4c;
+    margin-bottom: 10px;
+}
+
+.compartilhar a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    background: #1a2b4c;
+    padding: 8px 14px;
+    border-radius: 5px;
+}
+
+.compartilhar a:hover {
+    background: #d32f2f;
+}
+.atividades-page {
+    background: transparent;
+    box-shadow: none;
+}
+
+.cabecalho-atividades {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cabecalho-atividades h1 {
+    color: #1a2b4c;
+    margin-bottom: 15px;
+}
+
+.cabecalho-atividades p {
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.8;
+    color: #555;
+}
+
+.grid-atividades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.atividade-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+    border-top: 4px solid #d32f2f;
+    transition: .3s;
+}
+
+.atividade-card:hover {
+    transform: translateY(-5px);
+}
+
+.atividade-imagem {
+    height: 220px;
+    overflow: hidden;
+    background: #e5e8ef;
+}
+
+.atividade-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.atividade-conteudo {
+    padding: 20px;
+}
+
+.atividade-tag {
+    display: inline-block;
+    background: rgba(211,47,47,.1);
+    color: #d32f2f;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: .8rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.atividade-card h2 {
+    color: #1a2b4c;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.atividade-card p {
+    line-height: 1.7;
+    color: #555;
+}
+.alunos-destaque {7
+padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.alunos-destaque h2 {
+    color: #1a2b4c;
+    margin-bottom: 15px;}
+    .alunos-destaque .grid-equipe {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.btn-atalho {
+    text-decoration: none;
+    display: inline-block;
+}
+/* =========================================
+   VISUALIZADOR INTERATIVO DOS HORÁRIOS
+========================================= */
+
+.horarios-documentos-page {
+    background: transparent;
+    box-shadow: none;
+}
+
+.cabecalho-horarios-documentos {
+    max-width: 850px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.cabecalho-horarios-documentos h1 {
+    color: #1a2b4c;
+    margin-bottom: 12px;
+}
+
+.cabecalho-horarios-documentos p {
+    color: #555;
+    line-height: 1.7;
+}
+
+.etiqueta-pagina {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 6px 14px;
+    background: rgba(211, 47, 47, 0.1);
+    color: #d32f2f;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.seletor-etapas-horario {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 18px;
+    max-width: 750px;
+    margin: 0 auto 30px;
+}
+
+.botao-etapa-horario {
+    padding: 18px 22px;
+    border: 1px solid rgba(26, 43, 76, 0.16);
+    border-radius: 10px;
+    background: white;
+    color: #1a2b4c;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
+}
+
+.botao-etapa-horario span {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.botao-etapa-horario small {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+    font-size: 0.82rem;
+}
+
+.botao-etapa-horario:hover,
+.botao-etapa-horario.ativo {
+    background: #1a2b4c;
+    border-color: #1a2b4c;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.botao-etapa-horario:hover small,
+.botao-etapa-horario.ativo small {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.painel-horarios {
+    overflow: hidden;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+}
+
+.cabecalho-painel-horarios {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 20px 25px;
+    background: #1a2b4c;
+    color: white;
+}
+
+.cabecalho-painel-horarios span {
+    display: block;
+    margin-bottom: 4px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.cabecalho-painel-horarios h2 {
+    font-size: 1.25rem;
+}
+
+.acoes-documento {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.botao-controle,
+.botao-abrir,
+.botao-download-horario {
+    min-height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.botao-controle {
+    min-width: 40px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    font-size: 1.1rem;
+}
+
+.botao-restaurar {
+    font-size: 0.82rem;
+}
+
+.indicador-zoom {
+    min-width: 50px;
+    margin: 0 !important;
+    color: white !important;
+    text-align: center;
+    font-size: 0.82rem !important;
+}
+
+.botao-abrir,
+.botao-download-horario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 14px;
+    font-size: 0.82rem;
+}
+
+.botao-abrir {
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+}
+
+.botao-download-horario {
+    background: #d32f2f;
+    color: white;
+}
+
+.botao-controle:hover,
+.botao-abrir:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.botao-download-horario:hover {
+    background: #b71c1c;
+}
+
+.area-visualizacao-horario {
+    width: 100%;
+    height: 720px;
+    overflow: auto;
+    background: #dfe3e9;
+    padding: 18px;
+}
+
+.documento-zoom {
+    width: 100%;
+    height: 100%;
+    min-width: 800px;
+    transform-origin: top left;
+    transition: transform 0.25s ease;
+}
+
+.documento-zoom iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 680px;
+    border: none;
+    background: white;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+}
+
+.aviso-horarios {
+    display: flex;
+    gap: 8px;
+    margin-top: 25px;
+    padding: 18px 20px;
+    background: rgba(211, 47, 47, 0.07);
+    border-left: 5px solid #d32f2f;
+    border-radius: 6px;
+    color: #444;
+}
+
+.aviso-horarios strong {
+    color: #1a2b4c;
+}
+.area-visualizacao-horario {
+    width: 100%;
+    height: 720px;
+    overflow: auto;
+    padding: 15px;
+    background: #dfe3e9;
+}
+
+.area-visualizacao-horario iframe {
+    display: block;
+    width: 100%;
+    height: 680px;
+    border: none;
+    background: white;
+}
+/* =========================================
+   HORÁRIOS INTERATIVOS
+========================================= */
+
+.horarios-interativos-page {
+    background: transparent;
+    box-shadow: none;
+}
+
+.cabecalho-horarios-interativos {
+    max-width: 850px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.cabecalho-horarios-interativos h1 {
+    color: #1a2b4c;
+    margin-bottom: 12px;
+}
+
+.cabecalho-horarios-interativos p {
+    color: #555;
+    line-height: 1.7;
+}
+
+.ferramentas-horarios {
+    display: grid;
+    grid-template-columns: minmax(360px, 1fr) minmax(250px, 360px);
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.abas-horarios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.aba-horario {
+    padding: 15px 18px;
+    border: 1px solid rgba(26, 43, 76, 0.16);
+    border-radius: 9px;
+    background: white;
+    color: #1a2b4c;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: 0.25s;
+}
+
+.aba-horario small {
+    display: block;
+    margin-top: 4px;
+    color: #777;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.aba-horario:hover,
+.aba-horario.ativa {
+    background: #1a2b4c;
+    border-color: #1a2b4c;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.aba-horario:hover small,
+.aba-horario.ativa small {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.campo-pesquisa-horario label {
+    display: block;
+    margin-bottom: 7px;
+    color: #1a2b4c;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.campo-pesquisa-horario input {
+    width: 100%;
+    min-height: 48px;
+    padding: 11px 14px;
+    border: 1px solid #ccd3dd;
+    border-radius: 7px;
+    background: white;
+    color: #333;
+    font-size: 1rem;
+    outline: none;
+}
+
+.campo-pesquisa-horario input:focus {
+    border-color: #1a2b4c;
+    box-shadow: 0 0 0 3px rgba(26, 43, 76, 0.1);
+}
+
+.lista-turmas-area {
+    margin-bottom: 32px;
+}
+
+.lista-turmas-area h2 {
+    margin-bottom: 17px;
+    padding-left: 12px;
+    border-left: 5px solid #d32f2f;
+    color: #1a2b4c;
+    font-size: 1.3rem;
+}
+
+.grid-turmas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+    gap: 14px;
+}
+
+.cartao-turma {
+    min-height: 108px;
+    padding: 18px;
+    border: 1px solid rgba(26, 43, 76, 0.14);
+    border-radius: 10px;
+    background: white;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: 0.25s;
+}
+
+.cartao-turma strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #1a2b4c;
+    font-size: 1rem;
+}
+
+.cartao-turma span {
+    color: #6b7280;
+    font-size: 0.82rem;
+}
+
+.cartao-turma:hover,
+.cartao-turma.ativo {
+    border-color: #d32f2f;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.1);
+}
+
+.cartao-turma.ativo {
+    background: #1a2b4c;
+}
+
+.cartao-turma.ativo strong,
+.cartao-turma.ativo span {
+    color: white;
+}
+
+.nenhuma-turma {
+    display: none;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    text-align: center;
+    color: #666;
+}
+
+.painel-horario-interativo {
+    overflow: hidden;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 7px 24px rgba(0, 0, 0, 0.1);
+}
+
+.topo-painel-horario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 23px 26px;
+    background: #1a2b4c;
+    color: white;
+}
+
+.topo-painel-horario span {
+    display: block;
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06rem;
+}
+
+.topo-painel-horario h2 {
+    margin-bottom: 5px;
+    font-size: 1.45rem;
+}
+
+.topo-painel-horario p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+    line-height: normal;
+    font-size: 0.87rem;
+}
+
+.botao-imprimir-horario {
+    min-height: 42px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #d32f2f;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.botao-imprimir-horario:hover {
+    background: #b71c1c;
+}
+
+.legenda-horario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 14px 22px;
+    background: #f5f7fa;
+    border-bottom: 1px solid #e1e5eb;
+    color: #555;
+    font-size: 0.84rem;
+}
+
+.legenda-horario span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.marcador-aula,
+.marcador-civico {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+}
+
+.marcador-aula {
+    background: #dbe9f7;
+}
+
+.marcador-civico {
+    background: #fff21a;
+}
+
+.tabela-horario-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabela-horario-interativa {
+    width: 100%;
+    min-width: 920px;
+    border-collapse: collapse;
+}
+
+.tabela-horario-interativa th,
+.tabela-horario-interativa td {
+    padding: 14px 11px;
+    border: 1px solid #dfe3e8;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tabela-horario-interativa thead th {
+    background: #d32f2f;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.tabela-horario-interativa tbody th {
+    width: 115px;
+    background: #eef1f5;
+    color: #1a2b4c;
+    font-size: 0.87rem;
+}
+
+.celula-aula {
+    background: #e3eff9;
+}
+
+.celula-civico {
+    background: #fff21a;
+    color: #222;
+    font-weight: 700;
+}
+
+.nome-disciplina {
+    display: block;
+    color: #1a2b4c;
+    font-weight: 700;
+    font-size: 0.88rem;
+}
+
+.nome-professor {
+    display: block;
+    margin-top: 4px;
+    color: #667085;
+    font-size: 0.75rem;
+}
+
+.aviso-horarios {
+    display: flex;
+    gap: 8px;
+    margin-top: 25px;
+    padding: 18px 20px;
+    background: rgba(211, 47, 47, 0.07);
+    border-left: 5px solid #d32f2f;
+    border-radius: 6px;
+    color: #444;
+}
+
+.aviso-horarios strong {
+    color: #1a2b4c;
+}
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .painel-horario-interativo,
+    .painel-horario-interativo * {
+        visibility: visible;
+    }
+
+    .painel-horario-interativo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .botao-imprimir-horario,
+    .legenda-horario {
+        display: none !important;
+    }
+
+    .tabela-horario-interativa {
+        min-width: 0;
+    }
+
+    .tabela-horario-interativa th,
+    .tabela-horario-interativa td {
+        padding: 9px 6px;
+        font-size: 10pt;
+    }
+}
