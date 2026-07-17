@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Inscrição - 1ª Corrida do Dia dos Pais
+    </title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .pagina-interna {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagina-interna h1 {
+            color: #1a2b4c;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #d32f2f;
+            padding-bottom: 10px;
+        }
+
+        .pagina-interna h2 {
+            color: #1a2b4c;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .pagina-interna p {
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo-container">
+            <h1 class="school-title">
+                CMT LII - UEF Alice Mendes
+            </h1>
+        </div>
+
+        <div class="menu-area">
+
+            <input
+                type="checkbox"
+                id="menu-toggle"
+                class="menu-checkbox"
+            >
+
+            <label
+                for="menu-toggle"
+                class="menu-button"
+                aria-label="Abrir menu de navegação"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="nav-menu">
+                <ul>
+
+                    <li>
+                        <a href="../index.html">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="dropdown">
+                        <details>
+                            <summary>
+                                Institucional
+                            </summary>
+
+                            <ul class="submenu">
+                                <li>
+                                    <a href="../historico.html">
+                                        Histórico
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="../equipe.html">
+                                        Nossa Equipe
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="../horarios/horarios.html">
+                                        Organização Escolar
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li>
+                        <a href="../calendario.html">
+                            Calendário
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../acoes.html">
+                            Ações
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://idiario.semed.bacabal.ma.gov.br/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Diário Eletrônico
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+    <div class="header-spacer"></div>
+
+    <main class="pagina-interna inscricao-page">
+
+        <section class="cabecalho-inscricao">
+
+            <span class="etiqueta-pagina">
+                Inscrições abertas
+            </span>
+
+            <h1>
+                1ª Corrida do Dia dos Pais dos Colégios Militares de Bacabal
+            </h1>
+
+            <div class="informacoes-evento">
+
+                <div class="informacao-evento">
+                    <strong>
+                        Data
+                    </strong>
+
+                    <span>
+                        15 de agosto de 2026
+                    </span>
+                </div>
+
+                <div class="informacao-evento">
+                    <strong>
+                        Local
+                    </strong>
+
+                    <span>
+                        Avenida João Alberto — Bacabal/MA
+                    </span>
+                </div>
+
+                <div class="informacao-evento">
+                    <strong>
+                        Percursos
+                    </strong>
+
+                    <span>
+                        2 km e 5 km
+                    </span>
+                </div>
+
+            </div>
+
+            <p class="descricao-evento">
+                A 1ª Corrida do Dia dos Pais dos Colégios Militares de
+                Bacabal será realizada no dia 15 de agosto de 2026,
+                na Avenida João Alberto. O evento tem como objetivo
+                promover a prática esportiva, a integração entre as
+                famílias, os estudantes, os servidores e a comunidade
+                escolar.
+            </p>
+
+        </section>
+
+        <form
+            id="formInscricao"
+            class="formulario-inscricao"
+        >
+
+            <input
+                type="hidden"
+                id="evento"
+                name="evento"
+                value="1ª Corrida do Dia dos Pais dos Colégios Militares de Bacabal"
+            >
+
+            <div class="campo-formulario campo-completo">
+
+                <label for="nomeCompleto">
+                    Nome completo *
+                </label>
+
+                <input
+                    type="text"
+                    id="nomeCompleto"
+                    name="nomeCompleto"
+                    required
+                    maxlength="150"
+                    autocomplete="name"
+                >
+
+            </div>
+
+            <div class="campo-formulario">
+
+                <label for="cpf">
+                    CPF *
+                </label>
+
+                <input
+                    type="text"
+                    id="cpf"
+                    name="cpf"
+                    required
+                    maxlength="14"
+                    inputmode="numeric"
+                    placeholder="000.000.000-00"
+                >
+
+            </div>
+
+            <div class="campo-formulario">
+
+                <label for="dataNascimento">
+                    Data de nascimento *
+                </label>
+
+                <input
+                    type="date"
+                    id="dataNascimento"
+                    name="dataNascimento"
+                    required
+                >
+
+            </div>
+
+            <div class="campo-formulario">
+
+                <label for="telefone">
+                    Telefone/WhatsApp *
+                </label>
+
+                <input
+                    type="tel"
+                    id="telefone"
+                    name="telefone"
+                    required
+                    maxlength="20"
+                    autocomplete="tel"
+                    placeholder="(99) 99999-9999"
+                >
+
+            </div>
+
+            <div class="campo-formulario">
+
+                <label for="email">
+                    E-mail *
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    maxlength="150"
+                    autocomplete="email"
+                    placeholder="nome@exemplo.com"
+                >
+
+            </div>
+
+            <div class="campo-formulario">
+
+                <label for="escola">
+                    Escola pela qual está se inscrevendo *
+                </label>
+
+                <select
+                    id="escola"
+                    name="escola"
+                    required
+                >
+                    <option value="">
+                        Selecione uma escola
+                    </option>
+
+                    <option value="CMT III">
+                        CMT III
+                    </option>
+
+                    <option value="CMT LII">
+                        CMT LII
+                    </option>
+
+                    <option value="CMCB 2 de Julho">
+                        CMCB 2 de Julho
+                    </option>
+                </select>
+
+            </div>
+
+            <div class="campo-formulario">
+
+                <label for="categoria">
+                    Categoria *
+                </label>
+
+                <select
+                    id="categoria"
+                    name="categoria"
+                    required
+                >
+                    <option value="">
+                        Selecione a categoria
+                    </option>
+
+                    <option value="2 KM">
+                        Percurso de 2 km
+                    </option>
+
+                    <option value="5 KM">
+                        Percurso de 5 km
+                    </option>
+                </select>
+
+            </div>
+
+            <section class="aviso-privacidade campo-completo">
+
+                <h2>
+                    Declaração de privacidade e proteção de dados
+                </h2>
+
+                <p>
+                    Os dados pessoais informados neste formulário serão
+                    utilizados exclusivamente para realizar a inscrição,
+                    identificar o participante, organizar as categorias,
+                    entrar em contato sobre o evento, produzir as listas
+                    de participantes e cumprir as necessidades
+                    administrativas relacionadas à corrida.
+                </p>
+
+                <p>
+                    Os dados serão acessados apenas pela equipe responsável
+                    pela organização do evento e serão armazenados pelo
+                    período necessário ao cumprimento dessas finalidades,
+                    observados os direitos do titular previstos na
+                    Lei Geral de Proteção de Dados Pessoais — LGPD.
+                </p>
+
+                <p>
+                    O participante poderá solicitar informações, correção
+                    ou atualização dos dados por meio dos canais oficiais
+                    dos Colégios Militares de Bacabal.
+                </p>
+
+            </section>
+
+            <div class="aceite-lgpd campo-completo">
+
+                <input
+                    type="checkbox"
+                    id="aceiteLgpd"
+                    name="aceiteLgpd"
+                    required
+                >
+
+                <label for="aceiteLgpd">
+                    Li e compreendi a declaração de privacidade.
+                    Concordo, de forma livre e informada, com a coleta
+                    e o tratamento dos meus dados pessoais para as
+                    finalidades relacionadas à inscrição e à organização
+                    da 1ª Corrida do Dia dos Pais dos Colégios Militares
+                    de Bacabal.
+                </label>
+
+            </div>
+
+            <div
+                id="mensagemFormulario"
+                class="mensagem-formulario campo-completo"
+                aria-live="polite"
+            ></div>
+
+            <div class="campo-completo">
+
+                <button
+                    type="submit"
+                    id="botaoEnviar"
+                    class="botao-enviar-inscricao"
+                >
+                    Finalizar inscrição
+                </button>
+
+            </div>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <p>
+            © 2026 - Colégio Militar Municipal Tiradentes LII -
+            UEF Alice Mendes. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <a
+        href="#"
+        class="btn-topo"
+        aria-label="Voltar ao topo"
+    >
+        ↑
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/inscricoes.js?v=6"></script>
+
+</body>
+
+</html>
