@@ -70,14 +70,72 @@
 </a>
     </section>
 
-    <!-- MURAL DE POSTAGENS / AVISOS -->
+    <!-- MURAL DA CORRIDA DO DIA DOS PAIS -->
+    <section class="corrida-dia-dos-pais">
+
+    <h2>INSCRIÇÕES - CORRIDA DO DIA DOS PAIS</h2>
+
+    <div class="filtros">
+        <a href="#">Esporte</a>
+    </div>
+
+    <div class="grid-noticias">
+
+        <article class="card card-corrida">
+
+            <div class="carrossel-corrida">
+                <img
+                    src="./corrida/banner1.jpeg"
+                    alt="Corrida do Dia dos Pais"
+                    class="imagem-carrossel ativa"
+                >
+
+                <img
+                    src="./corrida/banner2.png"
+                    alt="Participantes da Corrida do Dia dos Pais"
+                    class="imagem-carrossel"
+                >
+
+                <img
+                    src="./corrida/banner3.png"
+                    alt="Evento Corrida do Dia dos Pais"
+                    class="imagem-carrossel"
+                >
+            </div>
+
+            <div class="conteudo-card-corrida">
+
+                <h3>PARTICIPE!</h3>
+
+                <p>
+                    Você é nosso convidado especial para a
+                    1ª Corrida do Dia dos Pais dos Colégios
+                    Militares de Bacabal.
+                </p>
+
+                <a
+                    href="./acoesenoticias/inscricoesdiadospais.html"
+                    class="botao-inscricao-corrida"
+                >
+                    INSCREVER-ME AGORA
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
     <section class="postagens">
         <h2>Nossas Postagens</h2>
         
         <div class="filtros">
             <a href="#">Tudo</a> | <a href="#">Educação</a> | <a href="#">Esporte</a> | <a href="#">Informe</a>
         </div>
-
+<div class="filtros">
+        </div>
         <div class="grid-noticias">
             <!-- Card de Notícia 1 -->
             <article class="card">
@@ -146,6 +204,28 @@
     <a href="#" class="btn-topo">
     ↑
 </a>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const imagens = document.querySelectorAll(
+            ".carrossel-corrida .imagem-carrossel"
+        );
+
+        if (imagens.length <= 1) {
+            return;
+        }
+
+        let imagemAtual = 0;
+
+        setInterval(function () {
+            imagens[imagemAtual].classList.remove("ativa");
+
+            imagemAtual =
+                (imagemAtual + 1) % imagens.length;
+
+            imagens[imagemAtual].classList.add("ativa");
+        }, 3500);
+    });
+</script>
 
 </body>
 </html>
